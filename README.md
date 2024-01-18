@@ -3,9 +3,15 @@
 
 Thank you for checking out the Quiz App Demo! This Flutter project showcases a simple Quiz Application UI template developed with Flutter.
 
+# Screenshots
+![preview](https://github.com/muhammad-fiaz/QuizApp-Flutter/assets/75434191/38ff1a17-c3e4-4c5b-974e-a946672194a6)
+
+**Note:- This Flutter Template Contains a Content Filler for Demo Purposes**
+
 # Table of Contents
 
 - [Quiz App using Flutter](#quiz-app-using-flutter)
+- [Screenshots](#screenshots)
    - [Project Overview](#project-overview)
    - [Getting Started](#getting-started)
       - [Prerequisites](#prerequisites)

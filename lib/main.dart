@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/Screens/QuizSplashScreen.dart';
+import 'package:quiz/Screens/quiz_splash_screen.dart';
 /*
 MIT License
 
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Quiz App',
-      home: QuizSplashScreen(),
+      home:const QuizSplashScreen(),
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
     );

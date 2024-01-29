@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/Screens/RepoScreen.dart';
-import 'package:quiz/utils/AppWidget.dart';
-import 'package:quiz/utils/QuizCard.dart';
-import 'package:quiz/utils/QuizColors.dart';
-import 'package:quiz/utils/QuizConstant.dart';
+import 'package:quiz/Screens/repo_screen.dart';
+import 'package:quiz/utils/app_widget.dart';
+import 'package:quiz/utils/quiz_card.dart';
+import 'package:quiz/utils/quiz_colors.dart';
+import 'package:quiz/utils/quiz_constant.dart';
 
 class QuizCards extends StatefulWidget {
   static String tag = '/QuizCards';
+
+  const QuizCards({super.key});
 
   @override
   _QuizCardsState createState() => _QuizCardsState();
@@ -31,14 +33,12 @@ class _QuizCardsState extends State<QuizCards> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: quiz_app_background,
+        backgroundColor: quizappbackground,
         body: SafeArea(
           child: Stack(
             alignment: Alignment.center,
             children: <Widget>[
-              Container(
-                child: Stack(alignment: Alignment.center, children: cardList),
-              ),
+              Stack(alignment: Alignment.center, children: cardList),
               Container(
                 alignment: Alignment.topCenter,
                 child: Row(
@@ -47,17 +47,17 @@ class _QuizCardsState extends State<QuizCards> {
                       onPressed: () {
                         finish(context);
                       },
-                      icon: Icon(
+                      icon:const Icon(
                         Icons.close,
-                        color: quiz_colorPrimary,
+                        color: quizcolorPrimary,
                       ),
                     ),
                     Expanded(
                       child: LinearProgressIndicator(
                         value: 0.5,
                         backgroundColor: textSecondaryColor.withOpacity(0.2),
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          quiz_green,
+                        valueColor:const AlwaysStoppedAnimation<Color>(
+                          quizgreen,
                         ),
                       ).paddingAll(16),
                     )
@@ -93,7 +93,7 @@ class _QuizCardsState extends State<QuizCards> {
               onDragEnd: (drag) {
                 if (x == 0) {
                   setState(() {
-                    RepoScreen().launch(context);
+                   const RepoScreen().launch(context);
                   });
                 }
                 removeCards(x);
@@ -102,20 +102,20 @@ class _QuizCardsState extends State<QuizCards> {
               feedback: Material(
                 child: GestureDetector(
                   child: Container(
-                    decoration: boxDecoration(radius: 20, bgColor: quiz_white, showShadow: true),
+                    decoration: boxDecoration(radius: 20, bgColor: quizwhite, showShadow: true),
                     child: Column(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           height: 200.0,
                           width: 320.0,
                           child: Container(
-                            margin: EdgeInsets.only(top: 50),
-                            padding: EdgeInsets.fromLTRB(20, 16, 20, 16),
+                            margin:const EdgeInsets.only(top: 50),
+                            padding:const EdgeInsets.fromLTRB(20, 16, 20, 16),
                             child: text(planetCard[x].cardImage, fontSize: textSizeLarge, fontFamily: fontBold, isLongText: true),
                           ),
                         ),
                         Container(
-                            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                            padding:const EdgeInsets.only(top: 10.0, bottom: 10.0),
                             child: Column(
                               children: <Widget>[
                                 quizCardSelection("A.", planetCard[x].option1, () {
@@ -139,19 +139,19 @@ class _QuizCardsState extends State<QuizCards> {
               ),
               child: GestureDetector(
                 child: Container(
-                    decoration: boxDecoration(radius: 20, bgColor: quiz_white, showShadow: true),
+                    decoration: boxDecoration(radius: 20, bgColor: quizwhite, showShadow: true),
                     child: Column(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                             height: 200.0,
                             width: 320.0,
                             child: Container(
-                              margin: EdgeInsets.only(top: 50),
-                              padding: EdgeInsets.fromLTRB(20, 16, 20, 16),
+                              margin:const EdgeInsets.only(top: 50),
+                              padding:const EdgeInsets.fromLTRB(20, 16, 20, 16),
                               child: text(planetCard[x].cardImage, fontSize: textSizeLarge, fontFamily: fontBold, isLongText: true),
                             )),
                         Container(
-                            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                            padding:const EdgeInsets.only(top: 10.0, bottom: 10.0),
                             child: Column(
                               children: <Widget>[
                                 quizCardSelection("A.", planetCard[x].option1, () {
@@ -184,19 +184,19 @@ Widget quizCardSelection(var option, var option1, onPressed) {
       onPressed();
     },
     child: Container(
-      margin: EdgeInsets.fromLTRB(16, 0, 16, 16),
-      decoration: boxDecoration(showShadow: false, bgColor: quiz_edit_background, radius: 10, color: quiz_view_color),
-      padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+      margin:const EdgeInsets.fromLTRB(16, 0, 16, 16),
+      decoration: boxDecoration(showShadow: false, bgColor: quizeditbackground, radius: 10, color: quizviewcolor),
+      padding:const EdgeInsets.fromLTRB(16, 10, 16, 10),
       width: 320,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Center(
-            child: text(option1, textColor: quiz_textColorSecondary),
+            child: text(option1, textColor: quiztextColorSecondary),
           ),
           Align(
             alignment: Alignment.topLeft,
-            child: text(option, textColor: quiz_textColorSecondary),
+            child: text(option, textColor: quiztextColorSecondary),
           )
         ],
       ),

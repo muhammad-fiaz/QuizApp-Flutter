@@ -6,7 +6,7 @@ class QuizCardDetails extends StatefulWidget {
   String imageAddress;
   String? placeDetails;
 
-  QuizCardDetails(this.imageAddress, this.index);
+  QuizCardDetails(this.imageAddress, this.index, {super.key});
 
   @override
   State<StatefulWidget> createState() => QuizCardDetailsState(imageAddress, index);
@@ -72,9 +72,9 @@ class QuizCardDetailsState extends State<QuizCardDetails> {
                 height: 500.0,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20.0),
-                      bottomRight: Radius.circular(20.0),
+                    borderRadius:const BorderRadius.only(
+                      bottomLeft: 20.0,
+                      bottomRight: 20.0,
                     ),
                     image: DecorationImage(
                       image: NetworkImage(imageAddress),
@@ -90,10 +90,10 @@ class QuizCardDetailsState extends State<QuizCardDetails> {
                   borderRadius: BorderRadius.circular(20.0),
                   child: Container(
                     height: 380.0,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       //borderRadius: BorderRadius.circular(20.0)
                     ),
-                    padding: EdgeInsets.only(
+                    padding:const EdgeInsets.only(
                       left: 20.0,
                       right: 10.0,
                       top: 20.0,

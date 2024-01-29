@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/Screens/RepoButton.dart';
-import 'package:quiz/utils/AppWidget.dart';
+import 'package:quiz/Screens/repo_button.dart';
+import 'package:quiz/utils/app_widget.dart';
 
 class RepoScreen extends StatefulWidget {
   final bool? enableAppbar;
 
-  RepoScreen({this.enableAppbar = false});
+  const RepoScreen({super.key, this.enableAppbar = false});
 
   @override
   _RepoScreenState createState() => _RepoScreenState();
@@ -34,7 +34,7 @@ class _RepoScreenState extends State<RepoScreen> {
       child: Scaffold(
         body: Stack(
           children: [
-            Icon(Icons.arrow_back, size: 24).paddingAll(16).onTap(() {
+           const Icon(Icons.arrow_back, size: 24).paddingAll(16).onTap(() {
               finish(context);
             }).visible(widget.enableAppbar!),
             SizedBox(

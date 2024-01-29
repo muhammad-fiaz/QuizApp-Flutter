@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/Screens/QuizDashboard.dart';
-import 'package:quiz/Screens/QuizVerifcation.dart';
-import 'package:quiz/utils/AppWidget.dart';
-import 'package:quiz/utils/QuizColors.dart';
-import 'package:quiz/utils/QuizConstant.dart';
-import 'package:quiz/utils/QuizStrings.dart';
-import 'package:quiz/utils/QuizWidget.dart';
+import 'package:quiz/Screens/quiz_dashboard.dart';
+import 'package:quiz/Screens/quiz_verifcation.dart';
+import 'package:quiz/utils/app_widget.dart';
+import 'package:quiz/utils/quiz_colors.dart';
+import 'package:quiz/utils/quiz_constant.dart';
+import 'package:quiz/utils/quiz_strings.dart';
+import 'package:quiz/utils/quiz_widget.dart';
 import 'package:quiz/utils/codePicker/country_code_picker.dart';
 
 class QuizMobileVerify extends StatefulWidget {
   static String tag = '/QuizMobileVerify';
+
+  const QuizMobileVerify({super.key});
 
   @override
   _QuizMobileVerifyState createState() => _QuizMobileVerifyState();
@@ -20,66 +22,66 @@ class QuizMobileVerify extends StatefulWidget {
 class _QuizMobileVerifyState extends State<QuizMobileVerify> {
   @override
   Widget build(BuildContext context) {
-    changeStatusColor(quiz_app_background);
+    changeStatusColor(quizappbackground);
 
     return Scaffold(
       appBar: AppBar(
-        title: text(quiz_lbl_let_started, fontSize: textSizeLargeMedium, fontFamily: fontMedium),
-        leading: Icon(
+        title: text(quizlblletstarted, fontSize: textSizeLargeMedium, fontFamily: fontMedium),
+        leading:const Icon(
           Icons.arrow_back,
-          color: quiz_colorPrimary,
+          color: quizcolorPrimary,
           size: 30,
         ).onTap(() {
           Navigator.of(context).pop();
         }),
         actions: <Widget>[
           Padding(
-              padding: EdgeInsets.only(right: 16.0),
+              padding:const EdgeInsets.only(right: 16.0),
               child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      QuizDashboard().launch(context);
+                    const  QuizDashboard().launch(context);
                     });
                   },
-                  child: text(quiz_lbl_skip, textColor: quiz_textColorSecondary, fontSize: textSizeMedium, fontFamily: fontMedium).center())),
+                  child: text(quizlblskip, textColor: quiztextColorSecondary, fontSize: textSizeMedium, fontFamily: fontMedium).center())),
         ],
         centerTitle: true,
-        backgroundColor: quiz_app_background,
+        backgroundColor: quizappbackground,
         elevation: 0.0,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height,
-            color: quiz_app_background,
+            color: quizappbackground,
             child: Column(
               children: <Widget>[
-                SizedBox(height: 20),
-                text(quiz_info_let_started, textColor: quiz_textColorSecondary, isLongText: true, isCentered: true).center(),
-                SizedBox(height: 20),
+               const SizedBox(height: 20),
+                text(quizinfoletstarted, textColor: quiztextColorSecondary, isLongText: true, isCentered: true).center(),
+               const SizedBox(height: 20),
                 Container(
-                  margin: EdgeInsets.all(24.0),
-                  decoration: boxDecoration(bgColor: quiz_white, color: quiz_white, showShadow: true, radius: 10),
+                  margin:const EdgeInsets.all(24.0),
+                  decoration: boxDecoration(bgColor: quizwhite, color: quizwhite, showShadow: true, radius: 10),
                   child: Row(
                     children: <Widget>[
-                      SizedBox(width: 5),
-                      CountryCodePicker(onChanged: print, showFlag: true),
+                    const  SizedBox(width: 5),
+                     const CountryCodePicker(onChanged: print, showFlag: true),
                       Container(
                         height: 30.0,
                         width: 1.0,
-                        color: quiz_colorPrimary,
+                        color: quizcolorPrimary,
                         margin: const EdgeInsets.only(left: 10.0, right: 10.0),
                       ),
                       Expanded(
                         child: TextFormField(
                           keyboardType: TextInputType.number,
                           maxLength: 10,
-                          style: TextStyle(fontSize: textSizeLargeMedium, fontFamily: fontRegular),
-                          decoration: InputDecoration(
+                          style:const TextStyle(fontSize: textSizeLargeMedium, fontFamily: fontRegular),
+                          decoration:const InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(16, 22, 16, 22),
                             counterText: "",
-                            hintText: quiz_hint_Mobile_Number,
-                            hintStyle: TextStyle(color: quiz_textColorPrimary, fontSize: textSizeMedium),
+                            hintText: quizhintMobileNumber,
+                            hintStyle: TextStyle(color: quiztextColorPrimary, fontSize: textSizeMedium),
                             border: InputBorder.none,
                           ),
                         ),
@@ -87,12 +89,12 @@ class _QuizMobileVerifyState extends State<QuizMobileVerify> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+               const SizedBox(height: 20),
                 Container(
                   child: Column(
                     children: <Widget>[
-                      text(quiz_lbl_already_have_an_account),
-                      text(quiz_lbl_sign_in, textColor: quiz_colorPrimary, textAllCaps: true),
+                      text(quizlblalreadyhaveanaccount),
+                      text(quizlblsignin, textColor: quizcolorPrimary, textAllCaps: true),
                     ],
                   ).onTap(() {
                     finish(context);
@@ -100,14 +102,14 @@ class _QuizMobileVerifyState extends State<QuizMobileVerify> {
                 ).onTap(() {
                   Navigator.of(context).pop();
                 }),
-                SizedBox(height: 20),
+               const SizedBox(height: 20),
                 Container(
-                  margin: EdgeInsets.all(24.0),
+                  margin:const EdgeInsets.all(24.0),
                   child: quizButton(
-                    textContent: quiz_lbl_continue,
+                    textContent: quizlblcontinue,
                     onPressed: () {
                       setState(() {
-                        QuizVerification().launch(context);
+                       const QuizVerification().launch(context);
                       });
                     },
                   ),

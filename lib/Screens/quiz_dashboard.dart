@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:quiz/Screens/QuizAllList.dart';
-import 'package:quiz/Screens/QuizHome.dart';
-import 'package:quiz/Screens/QuizProfile.dart';
-import 'package:quiz/utils/AppWidget.dart';
-import 'package:quiz/utils/QuizColors.dart';
-import 'package:quiz/utils/QuizImages.dart';
+import 'package:quiz/Screens/quiz_all_list.dart';
+import 'package:quiz/Screens/quiz_home.dart';
+import 'package:quiz/Screens/quiz_profile.dart';
+import 'package:quiz/utils/app_widget.dart';
+import 'package:quiz/utils/quiz_colors.dart';
+import 'package:quiz/utils/quiz_images.dart';
 
 class QuizDashboard extends StatefulWidget {
   static String tag = '/QuizDashboard';
+
+  const QuizDashboard({super.key});
 
   @override
   _QuizDashboardState createState() => _QuizDashboardState();
@@ -18,9 +20,9 @@ class _QuizDashboardState extends State<QuizDashboard> {
   var selectedIndex = 0;
 
   var pages = [
-    QuizHome(),
+   const QuizHome(),
     QuizAllList(),
-    QuizProfile(),
+   const QuizProfile(),
   ];
 
   @override
@@ -54,11 +56,11 @@ class _QuizDashboardState extends State<QuizDashboard> {
               icon,
               width: 20,
               height: 20,
-              color: selectedIndex == pos ? quiz_colorPrimary : quiz_icon_color,
+              color: selectedIndex == pos ? quizcolorPrimary : quiziconcolor,
             ),
             text(
               title,
-              textColor: selectedIndex == pos ? quiz_colorPrimary : quiz_icon_color,
+              textColor: selectedIndex == pos ? quizcolorPrimary : quiziconcolor,
             )
           ],
         ),
@@ -68,23 +70,23 @@ class _QuizDashboardState extends State<QuizDashboard> {
 
   @override
   Widget build(BuildContext context) {
-    changeStatusColor(quiz_app_background);
+    changeStatusColor(quizappbackground);
     return Scaffold(
-      backgroundColor: quiz_app_background,
+      backgroundColor: quizappbackground,
       body: SafeArea(
         child: pages[selectedIndex],
       ),
       bottomNavigationBar: Container(
         //padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: quiz_white,
+          color: quizwhite,
           border: Border.all(
-            color: quiz_ShadowColor,
+            color: quizShadowColor,
           ),
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+          borderRadius:const BorderRadius.only(topLeft: 20, topRight: 20),
           boxShadow: [
             BoxShadow(
-              color: quiz_ShadowColor,
+              color: quizShadowColor,
               blurRadius: 10,
               spreadRadius: 2,
               offset: Offset(0, 3.0),
@@ -96,9 +98,9 @@ class _QuizDashboardState extends State<QuizDashboard> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              quizItem(0, quiz_ic_homes, "Home"),
-              quizItem(1, quiz_ic_quiz, "Quiz"),
-              quizItem(2, quiz_ic_user, "Profile"),
+              quizItem(0, quizichomes, "Home"),
+              quizItem(1, quizicquiz, "Quiz"),
+              quizItem(2, quizicuser, "Profile"),
             ],
           ),
         ),

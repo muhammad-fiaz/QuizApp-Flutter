@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/Screens/QuizSignIn.dart';
+import 'package:quiz/Screens/quiz_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/utils/AppWidget.dart';
+import 'package:quiz/utils/app_widget.dart';
 
 import '../onBoardingScreens/view/onBoardingScreen.dart';
 
 class QuizSplashScreen extends StatefulWidget {
+  const QuizSplashScreen({super.key});
+
   @override
   _QuizSplashScreenState createState() => _QuizSplashScreenState();
 }
@@ -24,9 +26,9 @@ class _QuizSplashScreenState extends State<QuizSplashScreen> {
     bool onboardingComplete = prefs.getBool('onboarding_complete') ?? false;
 
     if (onboardingComplete) {
-      await 3.seconds.delay.then((value) => push(QuizSignIn(), pageRouteAnimation: PageRouteAnimation.Slide, isNewTask: true));
+      await 3.seconds.delay.then((value) => push(const QuizSignIn(), pageRouteAnimation: PageRouteAnimation.Slide, isNewTask: true));
     } else {
-      await 3.seconds.delay.then((value) => push(onBoardingScreenHome(), pageRouteAnimation: PageRouteAnimation.Slide, isNewTask: true));
+      await 3.seconds.delay.then((value) => push(const onBoardingScreenHome(), pageRouteAnimation: PageRouteAnimation.Slide, isNewTask: true));
     }
   }
 

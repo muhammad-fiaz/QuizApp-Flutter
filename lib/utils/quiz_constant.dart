@@ -13,7 +13,7 @@ const textSizeLarge = 24.0;
 const textSizeXLarge = 28.0;
 const textSizeXXLarge = 30.0;
 
-const spacing_middle = 10.0;
-const spacing_standard_new = 16.0;
+const spacingmiddle = 10.0;
+const spacingstandardnew = 16.0;
 
-const BaseUrl = 'https://github.com/muhammad-fiaz/QuizApp-Flutter';
+const baseUrl = 'https://github.com/muhammad-fiaz/QuizApp-Flutter';

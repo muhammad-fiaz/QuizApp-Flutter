@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/Screens/RepoScreen.dart';
-import 'package:quiz/model/QuizModels.dart';
-import 'package:quiz/utils/QuizColors.dart';
-import 'package:quiz/utils/QuizDataGenerator.dart';
+import 'package:quiz/Screens/repo_screen.dart';
+import 'package:quiz/model/quiz_models.dart';
+import 'package:quiz/utils/quiz_colors.dart';
+import 'package:quiz/utils/quiz_data_generator.dart';
 
 class QuizSearch extends StatefulWidget {
   static String tag = '/QuizSearch';
+
+  const QuizSearch({super.key});
 
   @override
   _QuizSearchState createState() => _QuizSearchState();
@@ -23,8 +25,8 @@ class _QuizSearchState extends State<QuizSearch> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: quiz_app_background,
+    return const Scaffold(
+      backgroundColor: quizappbackground,
       body: RepoScreen(enableAppbar: true),
     );
   }

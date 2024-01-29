@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/utils/AppWidget.dart';
+import 'package:quiz/utils/app_widget.dart';
 
 import '../../../main.dart';
 import 'country_code.dart';
@@ -20,7 +20,7 @@ class SelectionDialog extends StatefulWidget {
 
   SelectionDialog(this.elements, this.favoriteElements,
       {Key? key, this.showCountryOnly, this.emptySearchBuilder, InputDecoration searchDecoration = const InputDecoration(), this.searchStyle, this.showFlag})
-      : this.searchDecoration = searchDecoration.copyWith(prefixIcon: Icon(Icons.search)),
+      : searchDecoration = searchDecoration.copyWith(prefixIcon:const Icon(Icons.search)),
         super(key: key);
 
   @override
@@ -38,7 +38,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               text("Select Country Code", textColor: textPrimaryColor, fontSize: 16.0, fontFamily: "Semibold"),
-              SizedBox(height: 8),
+             const SizedBox(height: 8),
               TextField(
                 style: widget.searchStyle,
                 decoration: InputDecoration(
@@ -53,13 +53,13 @@ class _SelectionDialogState extends State<SelectionDialog> {
           ),
           children: [
             Container(
-                margin: EdgeInsets.only(top: 16),
+                margin:const EdgeInsets.only(top: 16),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: ListView(
                     children: [
                   widget.favoriteElements.isEmpty
-                      ? DecoratedBox(decoration: BoxDecoration())
+                      ? const DecoratedBox(decoration: BoxDecoration())
                       : Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[]
@@ -73,7 +73,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                                   ),
                                 )
                                 .toList())
-                            ..add(Divider())),
+                            ..add(const Divider())),
                 ]..addAll(filteredElements.isEmpty
                         ? [_buildEmptySearchWidget(context)]
                         : filteredElements.map((e) => SimpleDialogOption(
@@ -88,7 +88,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
       );
 
   Widget _buildOption(CountryCode e) {
-    return Container(
+    return SizedBox(
       width: 400,
       child: Flex(
         direction: Axis.horizontal,
@@ -96,7 +96,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
           widget.showFlag!
               ? Flexible(
                   child: Padding(
-                    padding: EdgeInsets.only(right: 16.0),
+                    padding: const EdgeInsets.only(right: 16.0),
                     child: CachedNetworkImage(
                       placeholder: placeholderWidgetFn() as Widget Function(BuildContext, String)?,
                       imageUrl: e.flagUri!,
@@ -125,7 +125,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
       return widget.emptySearchBuilder!(context);
     }
 
-    return Center(child: Text('No Country Found'));
+    return const Center(child: Text('No Country Found'));
   }
 
   @override

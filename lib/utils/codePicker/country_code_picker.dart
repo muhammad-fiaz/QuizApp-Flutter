@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/utils/AppWidget.dart';
+import 'package:quiz/utils/app_widget.dart';
 import 'package:quiz/utils/codePicker/selection_dialog.dart';
 import '../../../main.dart';
 import 'country_code.dart';
@@ -41,7 +41,7 @@ class CountryCodePicker extends StatefulWidget {
   /// contains the country codes to load only the specified countries.
   final List<String> countryFilter;
 
-  CountryCodePicker({
+  const CountryCodePicker({super.key, 
     this.onChanged,
     this.onInit,
     this.initialSelection,
@@ -72,7 +72,7 @@ class CountryCodePicker extends StatefulWidget {
             ))
         .toList();
 
-    if (countryFilter.length > 0) {
+    if (countryFilter.isNotEmpty) {
       elements = elements.where((c) => countryFilter.contains(c.code)).toList();
     }
 

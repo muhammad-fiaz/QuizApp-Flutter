@@ -104,7 +104,7 @@ class LinearPercentIndicator extends StatefulWidget {
     _progressColor = progressColor ?? Colors.red;
 
     if (percent! < 0.0 || percent! > 1.0) {
-      throw new Exception("Percent value must be a double between 0.0 and 1.0");
+      throw  new Exception("Percent value must be a double between 0.0 and 1.0");
     }
   }
 

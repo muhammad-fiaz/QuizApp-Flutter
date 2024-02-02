@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  animate_do: ^2.0.0
+  animate_do: ^3.3.3
   smooth_page_indicator: ^1.1.0
   nb_utils: ^6.1.0
   dots_indicator: ^2.0.0

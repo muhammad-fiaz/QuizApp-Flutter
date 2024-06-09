@@ -21,7 +21,7 @@ class _QuizDashboardState extends State<QuizDashboard> {
 
   var pages = [
    const QuizHome(),
-    QuizAllList(),
+    const QuizAllList(),
    const QuizProfile(),
   ];
 
@@ -83,8 +83,7 @@ class _QuizDashboardState extends State<QuizDashboard> {
           border: Border.all(
             color: quizShadowColor,
           ),
-          borderRadius:const BorderRadius.only(topLeft: 20, topRight: 20),
-          boxShadow: [
+          borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),          boxShadow: const [
             BoxShadow(
               color: quizShadowColor,
               blurRadius: 10,

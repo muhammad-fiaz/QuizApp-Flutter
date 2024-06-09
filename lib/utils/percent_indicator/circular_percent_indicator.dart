@@ -189,7 +189,7 @@ class _CircularPercentIndicatorState extends State<CircularPercentIndicator> wit
     if (widget.header != null) {
       items.add(widget.header!);
     }
-    items.add(Container(
+    items.add(SizedBox(
         height: widget.radius + widget.lineWidth,
         width: widget.radius,
         child: CustomPaint(
@@ -217,12 +217,10 @@ class _CircularPercentIndicatorState extends State<CircularPercentIndicator> wit
 
     return Material(
       color: widget.fillColor,
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: items,
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: items,
       ),
     );
   }

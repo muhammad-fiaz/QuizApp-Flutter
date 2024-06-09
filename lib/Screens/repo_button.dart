@@ -4,6 +4,8 @@ import 'package:quiz/utils/quiz_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RepoButton extends StatelessWidget {
+  const RepoButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AppButton(

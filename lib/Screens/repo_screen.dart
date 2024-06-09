@@ -56,7 +56,7 @@ class _RepoScreenState extends State<RepoScreen> {
                     textAlign: TextAlign.center,
                   ),
                   16.height,
-                  RepoButton(),
+                  const RepoButton(),
                 ],
               ),
             ).paddingAll(16),

@@ -104,7 +104,7 @@ class LinearPercentIndicator extends StatefulWidget {
     _progressColor = progressColor ?? Colors.red;
 
     if (percent! < 0.0 || percent! > 1.0) {
-      throw  new Exception("Percent value must be a double between 0.0 and 1.0");
+      throw  Exception("Percent value must be a double between 0.0 and 1.0");
     }
   }
 
@@ -128,7 +128,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator> with Si
   @override
   void initState() {
     if (widget.animation) {
-      _animationController = new AnimationController(vsync: this, duration: Duration(milliseconds: widget.animationDuration));
+      _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: widget.animationDuration));
       _animation = Tween(begin: 0.0, end: widget.percent).animate(
         CurvedAnimation(parent: _animationController!, curve: widget.curve),
       )..addListener(() {
@@ -226,8 +226,8 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator> with Si
 }
 
 class LinearPainter extends CustomPainter {
-  final Paint _paintBackground = new Paint();
-  final Paint _paintLine = new Paint();
+  final Paint _paintBackground = Paint();
+  final Paint _paintLine = Paint();
   final lineWidth;
   final progress;
   final center;

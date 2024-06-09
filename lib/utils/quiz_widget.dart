@@ -1,8 +1,5 @@
-import 'dart:html';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:quiz/utils/app_widget.dart';
 import 'package:quiz/utils/quiz_colors.dart';
@@ -141,13 +138,13 @@ Container quizHeaderText(var text) {
 class PinEntryTextField extends StatefulWidget {
   final String? lastPin;
   final int fields;
-  final String? onSubmit;
+  final Function(String)? onSubmit; // Change the type here
   final double fieldWidth;
   final double fontSize;
   final bool isTextObscure;
   final bool showFieldAsBox;
 
-   const PinEntryTextField({super.key, this.lastPin, this.fields = 4, this.onSubmit, this.fieldWidth = 40.0, this.fontSize = 16.0, this.isTextObscure = false, this.showFieldAsBox = false}) : assert(fields > 0);
+  const PinEntryTextField({super.key, this.lastPin, this.fields = 4, this.onSubmit, this.fieldWidth = 40.0, this.fontSize = 16.0, this.isTextObscure = false, this.showFieldAsBox = false}) : assert(fields > 0);
 
   @override
   State createState() {
@@ -182,7 +179,9 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
 
   @override
   void dispose() {
-    _textControllers.forEach((TextEditingController? t) => t!.dispose());
+    for (var t in _textControllers) {
+      t!.dispose();
+    }
     super.dispose();
   }
 
@@ -199,7 +198,9 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
   }
 
   void clearTextFields() {
-    _textControllers.forEach((TextEditingController? tEditController) => tEditController!.clear());
+    for (var tEditController in _textControllers) {
+      tEditController!.clear();
+    }
     _pin.clear();
   }
 
@@ -248,12 +249,12 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
             }
           }
           if (_pin.every((String? digit) => digit != null && digit != '')) {
-            widget.onSubmit(_pin.join());
+            widget.onSubmit?.call(_pin.join());
           }
         },
         onSubmitted: (String str) {
           if (_pin.every((String? digit) => digit != null && digit != '')) {
-            widget.onSubmit(_pin.join());
+            widget.onSubmit?.call(_pin.join());
           }
         },
       ),

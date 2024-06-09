@@ -54,8 +54,17 @@ class _QuizListingState extends State<QuizListing> {
                 alignment: Alignment.topRight,
                 children: <Widget>[
                   ClipRRect(
-                    borderRadius:const BorderRadius.only(topLeft: 16.0, topRight: 16.0),
-                    child: CachedNetworkImage(placeholder: placeholderWidgetFn() as Widget Function(BuildContext, String)?, imageUrl: mListings[index].quizImage, height: w * 0.4, width: MediaQuery.of(context).size.width / 0.25, fit: BoxFit.cover),
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(16.0),
+                        topRight: Radius.circular(16.0)
+                    ),
+                    child: CachedNetworkImage(
+                        placeholder: placeholderWidgetFn() as Widget Function(BuildContext, String)?,
+                        imageUrl: mListings[index].quizImage,
+                        height: w * 0.4,
+                        width: MediaQuery.of(context).size.width / 0.25,
+                        fit: BoxFit.cover
+                    ),
                   ),
                 ],
               ),
@@ -65,7 +74,7 @@ class _QuizListingState extends State<QuizListing> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     text(mListings[index].quizName, fontSize: textSizeMedium, isLongText: true, fontFamily: fontMedium),
-                   const SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     text(mListings[index].totalQuiz, textColor: quiztextColorSecondary),
                   ],
                 ),
@@ -95,7 +104,10 @@ class _QuizListingState extends State<QuizListing> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ClipRRect(
-                borderRadius:const BorderRadius.only(topLeft: 16.0, topRight: 16.0),
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16.0),
+                    topRight: Radius.circular(16.0)
+                ),
                 child: CachedNetworkImage(
                   placeholder: placeholderWidgetFn() as Widget Function(BuildContext, String)?,
                   imageUrl: mListings[index].quizImage,
@@ -105,8 +117,11 @@ class _QuizListingState extends State<QuizListing> {
                 ),
               ),
               Container(
-                decoration:const BoxDecoration(
-                  borderRadius: BorderRadius.only(bottomLeft: 16.0, bottomRight: 16.0),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(16.0),
+                      bottomRight: Radius.circular(16.0)
+                  ),
                   color: quizwhite,
                 ),
                 child: Column(

@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:quiz/Screens/repo_screen.dart';
@@ -74,6 +73,7 @@ class _QuizProfileState extends State<QuizProfile> {
             child: Row(
               children: <Widget>[
                 Flexible(
+                  flex: 1,
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
@@ -81,10 +81,13 @@ class _QuizProfileState extends State<QuizProfile> {
                       });
                     },
                     child: Container(
-                      padding:const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       width: width,
                       decoration: BoxDecoration(
-                        borderRadius:const BorderRadius.only(topLeft: spacingmiddle, bottomLeft: spacingmiddle),
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(spacingmiddle),
+                            bottomLeft: Radius.circular(spacingmiddle)
+                        ),
                         color: selectedPos == 1 ? quizwhite : Colors.transparent,
                         border: Border.all(color: selectedPos == 1 ? quizwhite : Colors.transparent),
                       ),
@@ -97,7 +100,6 @@ class _QuizProfileState extends State<QuizProfile> {
                       ),
                     ),
                   ),
-                  flex: 1,
                 ),
                 Container(
                   height: 40,
@@ -105,29 +107,34 @@ class _QuizProfileState extends State<QuizProfile> {
                   color: quizlightgray,
                 ).center(),
                 Flexible(
+                  flex: 1,
                   child: GestureDetector(
                       onTap: () {
                         setState(() {
                           selectedPos = 2;
                         });
                       },
-                      child: Container(
-                        padding:const EdgeInsets.all(16.0),
-                        width: width,
-                        decoration: BoxDecoration(
-                          borderRadius:const BorderRadius.only(topRight: spacingmiddle, bottomRight: spacingmiddle),
-                          color: selectedPos == 2 ? quizwhite : Colors.transparent,
-                          border: Border.all(color: selectedPos == 2 ? quizwhite : Colors.transparent),
+                    child: Container(
+                      padding: const EdgeInsets.all(16.0),
+                      width: width,
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(spacingmiddle),
+                            bottomRight: Radius.circular(spacingmiddle)
                         ),
-                        child: text(
-                          quizlblScores,
-                          fontSize: textSizeMedium,
-                          fontFamily: fontSemibold,
-                          isCentered: true,
-                          textColor: selectedPos == 2 ? quiztextColorPrimary : quiztextColorSecondary,
-                        ),
-                      )),
-                  flex: 1,
+                        color: selectedPos == 2 ? quizwhite : Colors.transparent,
+                        border: Border.all(color: selectedPos == 2 ? quizwhite : Colors.transparent),
+                      ),
+                      child: text(
+                        quizlblScores,
+                        fontSize: textSizeMedium,
+                        fontFamily: fontSemibold,
+                        isCentered: true,
+                        textColor: selectedPos == 2 ? quiztextColorPrimary : quiztextColorSecondary,
+                      ),
+                    ),
+
+                  ),
                 ),
               ],
             ),

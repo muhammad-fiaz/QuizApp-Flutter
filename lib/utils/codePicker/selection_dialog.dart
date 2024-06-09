@@ -62,8 +62,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                       ? const DecoratedBox(decoration: BoxDecoration())
                       : Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[]
-                            ..addAll(widget.favoriteElements
+                          children: <Widget>[...widget.favoriteElements
                                 .map(
                                   (f) => SimpleDialogOption(
                                     child: _buildOption(f),
@@ -72,9 +71,9 @@ class _SelectionDialogState extends State<SelectionDialog> {
                                     },
                                   ),
                                 )
-                                .toList())
-                            ..add(const Divider())),
-                ]..addAll(filteredElements.isEmpty
+                                .toList(), const Divider()]
+
+                            ), ...filteredElements.isEmpty
                         ? [_buildEmptySearchWidget(context)]
                         : filteredElements.map((e) => SimpleDialogOption(
                               key: Key(e.toLongString()),
@@ -82,7 +81,8 @@ class _SelectionDialogState extends State<SelectionDialog> {
                               onPressed: () {
                                 _selectItem(e);
                               },
-                            ))))),
+                            )),
+                ])),
           ],
         ),
       );

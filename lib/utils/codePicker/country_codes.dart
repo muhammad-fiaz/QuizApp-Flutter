@@ -1,3 +1,4 @@
+// these are the phone number codes for each country
 List<Map> codes = [
   {"name": "افغانستان", "code": "AF", "dial_code": "+93"},
   {"name": "Åland", "code": "AX", "dial_code": "+358"},

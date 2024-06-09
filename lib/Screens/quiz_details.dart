@@ -70,9 +70,7 @@ class quizList extends StatelessWidget {
   late var width;
   late QuizTestModel model;
 
-   quizList(QuizTestModel model, int pos) {
-    this.model = model;
-  }
+   quizList(this.model, int pos, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +118,7 @@ class quizList extends StatelessWidget {
           quizButton(
               textContent: quizlblbegin,
               onPressed: () {
-                QuizCards().launch(context);
+                const QuizCards().launch(context);
               })
         ],
       ),

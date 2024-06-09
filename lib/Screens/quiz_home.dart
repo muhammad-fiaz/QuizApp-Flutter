@@ -111,9 +111,7 @@ class _QuizHomeState extends State<QuizHome> {
 class NewQuiz extends StatelessWidget {
   late NewQuizModel model;
 
-  NewQuiz(NewQuizModel model, int pos) {
-    this.model = model;
-  }
+  NewQuiz(this.model, int pos, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -123,16 +121,25 @@ class NewQuiz extends StatelessWidget {
       margin:const EdgeInsets.only(left: 16),
       width: MediaQuery.of(context).size.width * 0.75,
       decoration: boxDecoration(radius: 16, showShadow: true, bgColor: quizwhite),
-      child: Column(
+      child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Stack(
             alignment: Alignment.topRight,
             children: <Widget>[
               ClipRRect(
-                borderRadius:const BorderRadius.only(topLeft: 16.0, topRight: 16.0),
-                child: CachedNetworkImage(placeholder: placeholderWidgetFn() as Widget Function(BuildContext, String)?, imageUrl: model.quizImage, height: w * 0.4, width: MediaQuery.of(context).size.width * 0.75, fit: BoxFit.cover),
-              ),
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16.0),
+                    topRight: Radius.circular(16.0)
+
+                ),
+                child: CachedNetworkImage(
+                    placeholder: placeholderWidgetFn() as Widget Function(BuildContext, String)?,
+                    imageUrl: model.quizImage,
+                    height: w * 0.4,
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    fit: BoxFit.cover
+                ),              ),
             ],
           ),
           Padding(

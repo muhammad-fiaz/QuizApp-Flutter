@@ -63,18 +63,18 @@ class QuizCardDetailsState extends State<QuizCardDetails> {
         children: <Widget>[
           Stack(
             children: <Widget>[
-              Container(
+              const SizedBox(
                 height: 800.0,
                 width: double.infinity,
               ),
               Container(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 height: 500.0,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     borderRadius:const BorderRadius.only(
-                      bottomLeft: 20.0,
-                      bottomRight: 20.0,
+                      bottomLeft: Radius.circular(20.0),
+                      bottomRight: Radius.circular(20.0),
                     ),
                     image: DecorationImage(
                       image: NetworkImage(imageAddress),
@@ -101,7 +101,7 @@ class QuizCardDetailsState extends State<QuizCardDetails> {
                     child: Text(
                       placeDetails,
                       textAlign: TextAlign.left,
-                      style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
+                      style: const TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
                     ),
                   ),
                 ),

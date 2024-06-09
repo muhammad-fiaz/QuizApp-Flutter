@@ -1,41 +1,40 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/utils/AppWidget.dart';
-import 'package:quiz/utils/QuizColors.dart';
 
-import 'QuizConstant.dart';
+import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
+import 'package:quiz/utils/app_widget.dart';
+import 'package:quiz/utils/quiz_colors.dart';
+
+import 'quiz_constant.dart';
 
 TextFormField quizEditTextStyle(var hintText, {isPassword = true}) {
   return TextFormField(
-    style: TextStyle(fontSize: textSizeMedium, fontFamily: fontRegular),
+    style:const TextStyle(fontSize: textSizeMedium, fontFamily: fontRegular),
     obscureText: isPassword,
     decoration: InputDecoration(
-      contentPadding: EdgeInsets.fromLTRB(16, 22, 16, 22),
+      contentPadding:const EdgeInsets.fromLTRB(16, 22, 16, 22),
       hintText: hintText,
       border: InputBorder.none,
-      hintStyle: TextStyle(color: quiz_textColorSecondary),
+      hintStyle:const TextStyle(color: quiztextColorSecondary),
     ),
   );
 }
 
 Divider quizDivider() {
-  return Divider(
+  return const Divider(
     height: 1,
-    color: t8_view_color,
+    color: t8viewcolor,
     thickness: 1,
   );
 }
 
 // ignore: must_be_immutable, camel_case_types
 class quizButton extends StatefulWidget {
-  var textContent;
+final String textContent;
 
   //   var icon;
   VoidCallback onPressed;
 
-  quizButton({
+  quizButton({super.key, 
     required this.textContent,
     required this.onPressed,
     //   @required this.icon,
@@ -52,25 +51,25 @@ class quizButtonState extends State<quizButton> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-          decoration: boxDecoration(bgColor: quiz_colorPrimary, radius: 16),
-          padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+          decoration: boxDecoration(bgColor: quizcolorPrimary, radius: 16),
+          padding:const EdgeInsets.fromLTRB(16, 10, 16, 10),
           child: Stack(
             alignment: Alignment.center,
             children: <Widget>[
               Center(
-                child: text(widget.textContent, textColor: t8_white, fontFamily: fontMedium, textAllCaps: false),
+                child: text(widget.textContent, textColor: t8white, fontFamily: fontMedium, textAllCaps: false),
               ),
               Align(
                 alignment: Alignment.topRight,
                 child: Container(
-                  decoration: BoxDecoration(shape: BoxShape.circle, color: quiz_colorPrimaryDark),
+                  decoration:const BoxDecoration(shape: BoxShape.circle, color: quizcolorPrimaryDark),
                   width: 35,
                   height: 35,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child:const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.arrow_forward,
-                      color: t8_white,
+                      color: t8white,
                       size: 20,
                     ),
                   ),
@@ -84,9 +83,9 @@ class quizButtonState extends State<quizButton> {
 
 // ignore: must_be_immutable, camel_case_types
 class quizTopBar extends StatefulWidget {
-  var titleName;
+  final String titleName;
 
-  quizTopBar(var this.titleName);
+  const quizTopBar(this.titleName, {super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -99,14 +98,14 @@ class quizTopBarState extends State<quizTopBar> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: 60,
         child: Row(
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.arrow_back),
-              color: t8_colorPrimary,
+              icon:const Icon(Icons.arrow_back),
+              color: t8colorPrimary,
               onPressed: () {
                 finish(context);
               },
@@ -115,7 +114,7 @@ class quizTopBarState extends State<quizTopBar> {
               child: Text(
                 widget.titleName,
                 maxLines: 2,
-                style: TextStyle(fontFamily: fontBold, fontSize: 22, color: t8_textColorPrimary),
+                style:const TextStyle(fontFamily: fontBold, fontSize: 22, color: t8textColorPrimary),
               ).center(),
             )
           ],
@@ -127,11 +126,11 @@ class quizTopBarState extends State<quizTopBar> {
 
 Container quizHeaderText(var text) {
   return Container(
-    margin: EdgeInsets.only(top: 16),
+    margin:const EdgeInsets.only(top: 16),
     child: Text(
       text,
       maxLines: 2,
-      style: TextStyle(fontFamily: fontBold, fontSize: 22, color: t8_textColorPrimary),
+      style:const TextStyle(fontFamily: fontBold, fontSize: 22, color: t8textColorPrimary),
     ),
   );
 }
@@ -139,13 +138,13 @@ Container quizHeaderText(var text) {
 class PinEntryTextField extends StatefulWidget {
   final String? lastPin;
   final int fields;
-  final onSubmit;
-  final fieldWidth;
-  final fontSize;
-  final isTextObscure;
-  final showFieldAsBox;
+  final Function(String)? onSubmit; // Change the type here
+  final double fieldWidth;
+  final double fontSize;
+  final bool isTextObscure;
+  final bool showFieldAsBox;
 
-  PinEntryTextField({this.lastPin, this.fields = 4, this.onSubmit, this.fieldWidth = 40.0, this.fontSize = 16.0, this.isTextObscure = false, this.showFieldAsBox = false}) : assert(fields > 0);
+  const PinEntryTextField({super.key, this.lastPin, this.fields = 4, this.onSubmit, this.fieldWidth = 40.0, this.fontSize = 16.0, this.isTextObscure = false, this.showFieldAsBox = false}) : assert(fields > 0);
 
   @override
   State createState() {
@@ -166,7 +165,7 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
     _pin = List<String?>.filled(widget.fields, null, growable: false);
     _focusNodes = List<FocusNode?>.filled(widget.fields, null, growable: false);
     _textControllers = List<TextEditingController?>.filled(widget.fields, null, growable: false);
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         if (widget.lastPin != null) {
           for (var i = 0; i < widget.lastPin!.length; i++) {
@@ -180,7 +179,9 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
 
   @override
   void dispose() {
-    _textControllers.forEach((TextEditingController? t) => t!.dispose());
+    for (var t in _textControllers) {
+      t!.dispose();
+    }
     super.dispose();
   }
 
@@ -197,7 +198,9 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
   }
 
   void clearTextFields() {
-    _textControllers.forEach((TextEditingController? tEditController) => tEditController!.clear());
+    for (var tEditController in _textControllers) {
+      tEditController!.clear();
+    }
     _pin.clear();
   }
 
@@ -218,7 +221,7 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
 
     return Container(
       width: widget.fieldWidth,
-      margin: EdgeInsets.only(right: 10.0),
+      margin:const EdgeInsets.only(right: 10.0),
       child: TextField(
         controller: _textControllers[i],
         keyboardType: TextInputType.number,
@@ -227,7 +230,7 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
         style: TextStyle(color: Colors.black, fontFamily: fontMedium, fontSize: widget.fontSize),
         focusNode: _focusNodes[i],
         obscureText: widget.isTextObscure,
-        decoration: InputDecoration(counterText: "", border: widget.showFieldAsBox ? OutlineInputBorder(borderSide: BorderSide(width: 2.0)) : null),
+        decoration: InputDecoration(counterText: "", border: widget.showFieldAsBox ? const OutlineInputBorder(borderSide: BorderSide(width: 2.0)) : null),
         onChanged: (String str) {
           setState(() {
             _pin[i] = str;
@@ -246,12 +249,12 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
             }
           }
           if (_pin.every((String? digit) => digit != null && digit != '')) {
-            widget.onSubmit(_pin.join());
+            widget.onSubmit?.call(_pin.join());
           }
         },
         onSubmitted: (String str) {
           if (_pin.every((String? digit) => digit != null && digit != '')) {
-            widget.onSubmit(_pin.join());
+            widget.onSubmit?.call(_pin.join());
           }
         },
       ),
@@ -265,5 +268,5 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
 }
 
 showToast(String caption) {
-  Fluttertoast.showToast(msg: caption, toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.BOTTOM, backgroundColor: getColorFromHex("5362FB"), textColor: quiz_white, fontSize: 16.0);
+  Fluttertoast.showToast(msg: caption, toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.BOTTOM, backgroundColor: getColorFromHex("5362FB"), textColor: quizwhite, fontSize: 16.0);
 }

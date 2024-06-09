@@ -6,7 +6,7 @@ class QuizCardDetails extends StatefulWidget {
   String imageAddress;
   String? placeDetails;
 
-  QuizCardDetails(this.imageAddress, this.index);
+  QuizCardDetails(this.imageAddress, this.index, {super.key});
 
   @override
   State<StatefulWidget> createState() => QuizCardDetailsState(imageAddress, index);
@@ -63,16 +63,16 @@ class QuizCardDetailsState extends State<QuizCardDetails> {
         children: <Widget>[
           Stack(
             children: <Widget>[
-              Container(
+              const SizedBox(
                 height: 800.0,
                 width: double.infinity,
               ),
               Container(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 height: 500.0,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius:const BorderRadius.only(
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                     ),
@@ -90,10 +90,10 @@ class QuizCardDetailsState extends State<QuizCardDetails> {
                   borderRadius: BorderRadius.circular(20.0),
                   child: Container(
                     height: 380.0,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       //borderRadius: BorderRadius.circular(20.0)
                     ),
-                    padding: EdgeInsets.only(
+                    padding:const EdgeInsets.only(
                       left: 20.0,
                       right: 10.0,
                       top: 20.0,
@@ -101,7 +101,7 @@ class QuizCardDetailsState extends State<QuizCardDetails> {
                     child: Text(
                       placeDetails,
                       textAlign: TextAlign.left,
-                      style: TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
+                      style: const TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
                     ),
                   ),
                 ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/Screens/RepoScreen.dart';
-import 'package:quiz/utils/AppWidget.dart';
-import 'package:quiz/utils/QuizColors.dart';
-import 'package:quiz/utils/QuizStrings.dart';
+import 'package:quiz/Screens/repo_screen.dart';
+import 'package:quiz/utils/app_widget.dart';
+import 'package:quiz/utils/quiz_colors.dart';
+import 'package:quiz/utils/quiz_strings.dart';
 
 class QuizSettings extends StatefulWidget {
   static String tag = '/QuizSetting';
@@ -15,23 +15,23 @@ class QuizSettings extends StatefulWidget {
 class _QuizSettingsState extends State<QuizSettings> {
   @override
   Widget build(BuildContext context) {
-    changeStatusColor(quiz_app_background);
+    changeStatusColor(quizappbackground);
     return Scaffold(
-      backgroundColor: quiz_app_background,
+      backgroundColor: quizappbackground,
       appBar: AppBar(
         title: Text(
-          quiz_lbl_setting,
+          quizlblsetting,
           style: primaryTextStyle(size: 18, fontFamily: "Medium"),
         ),
-        leading: Icon(
+        leading:const Icon(
           Icons.arrow_back,
-          color: quiz_colorPrimary,
+          color: quizcolorPrimary,
           size: 30,
         ).onTap(() {
           Navigator.of(context).pop();
         }),
         centerTitle: true,
-        backgroundColor: quiz_app_background,
+        backgroundColor: quizappbackground,
         elevation: 0.0,
       ),
       body: Column(
@@ -39,67 +39,67 @@ class _QuizSettingsState extends State<QuizSettings> {
           Expanded(
             child: SingleChildScrollView(
               child: Container(
-                margin: EdgeInsets.all(20),
+                margin:const EdgeInsets.all(20),
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 8),
+                   const SizedBox(height: 8),
                     Container(
-                      decoration: BoxDecoration(color: quiz_white, borderRadius: BorderRadius.circular(8), boxShadow: defaultBoxShadow()),
-                      margin: EdgeInsets.only(bottom: 20),
+                      decoration: BoxDecoration(color: quizwhite, borderRadius: BorderRadius.circular(8), boxShadow: defaultBoxShadow()),
+                      margin:const EdgeInsets.only(bottom: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          quizSettingOptionPattern1(Icons.person, quiz_lbl_edit_profile, quiz_username).onTap(() {
+                          quizSettingOptionPattern1(Icons.person, quizlbleditprofile, quizusername).onTap(() {
                             setState(() {
-                              RepoScreen(enableAppbar: true).launch(context);
+                             const RepoScreen(enableAppbar: true).launch(context);
                             });
                           }),
-                          quizSettingOptionPattern1(Icons.email, quiz_lbl_email, quiz_email).onTap(() {
+                          quizSettingOptionPattern1(Icons.email, quizlblemail, quizemail).onTap(() {
                             setState(() {
-                              RepoScreen(enableAppbar: true).launch(context);
+                             const RepoScreen(enableAppbar: true).launch(context);
                             });
                           }),
-                          quizSettingOptionPattern1(Icons.vpn_key, quiz_lbl_password, quiz_sub_info_password).onTap(() {
+                          quizSettingOptionPattern1(Icons.vpn_key, quizlblpassword, quizsubinfopassword).onTap(() {
                             setState(() {
-                              RepoScreen(enableAppbar: true).launch(context);
+                             const RepoScreen(enableAppbar: true).launch(context);
                             });
                           }),
                         ],
                       ),
                     ),
                     Container(
-                      decoration: BoxDecoration(color: quiz_white, borderRadius: BorderRadius.circular(8), boxShadow: defaultBoxShadow()),
-                      margin: EdgeInsets.only(bottom: 20),
+                      decoration: BoxDecoration(color: quizwhite, borderRadius: BorderRadius.circular(8), boxShadow: defaultBoxShadow()),
+                      margin:const EdgeInsets.only(bottom: 20),
                       child: Column(
                         children: <Widget>[
-                          quizSettingOptionPattern2(Icons.star, quiz_lbl_scoreboard),
-                          quizSettingOptionPattern2(Icons.add_box, quiz_lbl_new_course),
-                          quizSettingOptionPattern2(Icons.notifications, quiz_lbl_study_reminder),
+                          quizSettingOptionPattern2(Icons.star, quizlblscoreboard),
+                          quizSettingOptionPattern2(Icons.add_box, quizlblnewcourse),
+                          quizSettingOptionPattern2(Icons.notifications, quizlblstudyreminder),
                         ],
                       ),
                     ),
                     Container(
-                      decoration: BoxDecoration(color: quiz_white, borderRadius: BorderRadius.circular(8), boxShadow: defaultBoxShadow()),
-                      margin: EdgeInsets.only(bottom: 20),
+                      decoration: BoxDecoration(color: quizwhite, borderRadius: BorderRadius.circular(8), boxShadow: defaultBoxShadow()),
+                      margin:const EdgeInsets.only(bottom: 20),
                       child: Column(
                         children: <Widget>[
-                          quizSettingOptionPattern3(Icons.help, quiz_lbl_help).onTap(() {
+                          quizSettingOptionPattern3(Icons.help, quizlblhelp).onTap(() {
                             setState(() {
-                              RepoScreen(enableAppbar: true).launch(context);
+                             const RepoScreen(enableAppbar: true).launch(context);
                             });
                           }),
-                          quizSettingOptionPattern3(Icons.security, quiz_lbl_privacy),
-                          quizSettingOptionPattern3(Icons.chat_bubble, quiz_lbl_contact_us).onTap(() {
+                          quizSettingOptionPattern3(Icons.security, quizlblprivacy),
+                          quizSettingOptionPattern3(Icons.chat_bubble, quizlblcontactus).onTap(() {
                             setState(() {
-                              RepoScreen(enableAppbar: true).launch(context);
+                             const RepoScreen(enableAppbar: true).launch(context);
                             });
                           }),
                         ],
                       ),
                     ),
                     Text(
-                      quiz_lbl_logout,
-                      style: boldTextStyle(color: quiz_colorPrimary, size: 18),
+                      quizlbllogout,
+                      style: boldTextStyle(color: quizcolorPrimary, size: 18),
                     ).paddingAll(16).onTap(() {
                       finish(context);
                     })
@@ -116,23 +116,23 @@ class _QuizSettingsState extends State<QuizSettings> {
 
 Widget quizSettingOptionPattern1(var settingIcon, var heading, var info) {
   return Padding(
-    padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+    padding:const EdgeInsets.fromLTRB(16, 10, 16, 10),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Row(
           children: <Widget>[
             Container(
-              decoration: BoxDecoration(shape: BoxShape.circle, color: quiz_color_setting),
+              decoration:const BoxDecoration(shape: BoxShape.circle, color: quizcolorsetting),
               width: 45,
               height: 45,
-              padding: EdgeInsets.all(4),
+              padding:const EdgeInsets.all(4),
               child: Icon(
                 settingIcon,
-                color: quiz_white,
+                color: quizwhite,
               ),
             ),
-            SizedBox(
+           const SizedBox(
               width: 16,
             ),
             Column(
@@ -141,15 +141,15 @@ Widget quizSettingOptionPattern1(var settingIcon, var heading, var info) {
                 Text(heading),
                 Text(
                   info,
-                  style: primaryTextStyle(color: quiz_textColorSecondary, size: 14),
+                  style: primaryTextStyle(color: quiztextColorSecondary, size: 14),
                 )
               ],
             ),
           ],
         ),
-        Icon(
+      const  Icon(
           Icons.keyboard_arrow_right,
-          color: quiz_icon_color,
+          color: quiziconcolor,
         )
       ],
     ),
@@ -160,23 +160,23 @@ Widget quizSettingOptionPattern2(var icon, var heading) {
   bool isSwitched1 = false;
 
   return Padding(
-    padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+    padding:const EdgeInsets.fromLTRB(16, 10, 16, 10),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Row(
           children: <Widget>[
             Container(
-              decoration: BoxDecoration(shape: BoxShape.circle, color: quiz_color_setting),
+              decoration:const BoxDecoration(shape: BoxShape.circle, color: quizcolorsetting),
               width: 45,
               height: 45,
-              padding: EdgeInsets.all(4),
+              padding:const EdgeInsets.all(4),
               child: Icon(
                 icon,
-                color: quiz_white,
+                color: quizwhite,
               ),
             ),
-            SizedBox(
+           const SizedBox(
               width: 16,
             ),
             Text(heading),
@@ -189,8 +189,8 @@ Widget quizSettingOptionPattern2(var icon, var heading) {
             isSwitched1 = value;
             //  });
           },
-          activeTrackColor: quiz_colorPrimary,
-          activeColor: quiz_view_color,
+          activeTrackColor: quizcolorPrimary,
+          activeColor: quizviewcolor,
         )
       ],
     ),
@@ -199,31 +199,31 @@ Widget quizSettingOptionPattern2(var icon, var heading) {
 
 Widget quizSettingOptionPattern3(var icon, var heading) {
   return Padding(
-    padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+    padding:const EdgeInsets.fromLTRB(16, 10, 16, 10),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Row(
           children: <Widget>[
             Container(
-              decoration: BoxDecoration(shape: BoxShape.circle, color: quiz_color_setting),
+              decoration:const BoxDecoration(shape: BoxShape.circle, color: quizcolorsetting),
               width: 45,
               height: 45,
-              padding: EdgeInsets.all(4),
+              padding:const EdgeInsets.all(4),
               child: Icon(
                 icon,
-                color: quiz_white,
+                color: quizwhite,
               ),
             ),
-            SizedBox(
+           const SizedBox(
               width: 16,
             ),
             Text(heading),
           ],
         ),
-        Icon(
+       const Icon(
           Icons.keyboard_arrow_right,
-          color: quiz_icon_color,
+          color: quiziconcolor,
         )
       ],
     ),

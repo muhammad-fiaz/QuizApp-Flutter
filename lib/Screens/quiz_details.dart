@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:quiz/Screens/QuizCard.dart';
-import 'package:quiz/model/QuizModels.dart';
-import 'package:quiz/utils/AppWidget.dart';
-import 'package:quiz/utils/QuizColors.dart';
-import 'package:quiz/utils/QuizConstant.dart';
-import 'package:quiz/utils/QuizDataGenerator.dart';
-import 'package:quiz/utils/QuizStrings.dart';
-import 'package:quiz/utils/QuizWidget.dart';
+import 'package:quiz/Screens/quiz_card.dart';
+import 'package:quiz/model/quiz_models.dart';
+import 'package:quiz/utils/app_widget.dart';
+import 'package:quiz/utils/quiz_colors.dart';
+import 'package:quiz/utils/quiz_constant.dart';
+import 'package:quiz/utils/quiz_data_generator.dart';
+import 'package:quiz/utils/quiz_strings.dart';
+import 'package:quiz/utils/quiz_widget.dart';
 
 class QuizDetails extends StatefulWidget {
   static String tag = '/QuizDetails';
+
+  const QuizDetails({super.key});
 
   @override
   _QuizDetailsState createState() => _QuizDetailsState();
@@ -27,29 +29,29 @@ class _QuizDetailsState extends State<QuizDetails> {
 
   @override
   Widget build(BuildContext context) {
-    changeStatusColor(quiz_app_background);
+    changeStatusColor(quizappbackground);
     return Scaffold(
-      backgroundColor: quiz_app_background,
+      backgroundColor: quizappbackground,
       body: Column(
         children: <Widget>[
-          quizTopBar(quiz_lbl_biology_basics),
+         const quizTopBar(quizlblbiologybasics),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  SizedBox(
+                const SizedBox(
                     height: 20,
                   ),
-                  text(quiz_lbl_biology_amp_scientific_method, isLongText: true, fontFamily: fontBold, isCentered: true, fontSize: textSizeXLarge),
-                  text(quiz_text_4_to_8_lesson, textColor: quiz_textColorSecondary),
-                  SizedBox(
+                  text(quizlblbiologyampscientificmethod, isLongText: true, fontFamily: fontBold, isCentered: true, fontSize: textSizeXLarge),
+                  text(quiztext4to8lesson, textColor: quiztextColorSecondary),
+                const  SizedBox(
                     height: 10,
                   ),
                   ListView.builder(
                       scrollDirection: Axis.vertical,
                       itemCount: mList.length,
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics:const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
                         return quizList(mList[index], index);
                       }),
@@ -68,38 +70,36 @@ class quizList extends StatelessWidget {
   late var width;
   late QuizTestModel model;
 
-  quizList(QuizTestModel model, int pos) {
-    this.model = model;
-  }
+   quizList(this.model, int pos, {super.key});
 
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(left: 16, bottom: 16, right: 16),
-      decoration: boxDecoration(radius: 10, showShadow: true, bgColor: quiz_white),
-      padding: EdgeInsets.all(16),
+      margin:const EdgeInsets.only(left: 16, bottom: 16, right: 16),
+      decoration: boxDecoration(radius: 10, showShadow: true, bgColor: quizwhite),
+      padding:const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
               Container(
-                decoration: BoxDecoration(shape: BoxShape.circle, color: quiz_color_setting),
+                decoration:const BoxDecoration(shape: BoxShape.circle, color: quizcolorsetting),
                 width: width / 6.5,
                 height: width / 6.5,
-                padding: EdgeInsets.all(10),
+                padding:const EdgeInsets.all(10),
                 child: commonCacheImageWidget(
                   model.image,
                 ),
               ),
-              SizedBox(
+             const SizedBox(
                 width: 16,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  text(model.type, textColor: quiz_textColorSecondary, fontSize: textSizeSMedium),
+                  text(model.type, textColor: quiztextColorSecondary, fontSize: textSizeSMedium),
                   text(
                     model.heading,
                     fontFamily: fontMedium,
@@ -108,17 +108,17 @@ class quizList extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+         const SizedBox(
             height: 16,
           ),
-          text(model.description, textColor: quiz_textColorSecondary),
-          SizedBox(
+          text(model.description, textColor: quiztextColorSecondary),
+         const SizedBox(
             height: 16,
           ),
           quizButton(
-              textContent: quiz_lbl_begin,
+              textContent: quizlblbegin,
               onPressed: () {
-                QuizCards().launch(context);
+                const QuizCards().launch(context);
               })
         ],
       ),

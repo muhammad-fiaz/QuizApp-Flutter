@@ -26,7 +26,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz/onBoardingScreens/utils/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../Screens/QuizSignIn.dart';
+import '../Screens/quiz_sign_in.dart';
 
 
 

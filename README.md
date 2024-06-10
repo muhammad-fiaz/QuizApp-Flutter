@@ -1,5 +1,23 @@
+<div style="text-align: center;">
+
 # Quiz App using Flutter
 
+[![License](https://img.shields.io/github/license/muhammad-fiaz/QuizApp-Flutter)](https://github.com/muhammad-fiaz/QuizApp-Flutter/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/muhammad-fiaz/QuizApp-Flutter)](https://github.com/muhammad-fiaz/QuizApp-Flutter/stargazers)
+[![Forks](https://img.shields.io/github/forks/muhammad-fiaz/QuizApp-Flutter)](https://github.com/muhammad-fiaz/QuizApp-Flutter/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/muhammad-fiaz/QuizApp-Flutter)](https://github.com/muhammad-fiaz/QuizApp-Flutter/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/muhammad-fiaz/QuizApp-Flutter)](https://github.com/muhammad-fiaz/QuizApp-Flutter/pulls)
+[![GitHub contributors](https://img.shields.io/github/contributors/muhammad-fiaz/QuizApp-Flutter)](https://github.com/muhammad-fiaz/QuizApp-Flutter/graphs/contributors)
+[![GitHub watchers](https://img.shields.io/github/watchers/muhammad-fiaz/QuizApp-Flutter)](https://github.com/muhammad-fiaz/QuizApp-Flutter/watchers)
+[![GitHub last commit](https://img.shields.io/github/last-commit/muhammad-fiaz/QuizApp-Flutter)](https://github.com/muhammad-fiaz/GpayApp-Flutter/commits/main)
+<a href="https://discord.gg/uRkZ5cHf" target="_blank">
+  <img
+    src="https://dcbadge.limes.pink/api/server/https://discord.gg/uRkZ5cHf?style=shield"
+    alt="discord invite"
+  />
+</a>
+
+</div>
 
 Thank you for checking out the Quiz App Demo! This Flutter project showcases a simple Quiz Application UI template developed with Flutter.
 
